@@ -49,7 +49,7 @@ void TIM2_IRQHandler(void)
 {
 	if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET) //溢出中断
 	{
-		     MY_br = 4096-DMA_GetCurrDataCounter(DMA2_Stream5);//已经写入的字节数
+		     MY_br = 4096-DMA_GetCurrDataCounter(DMA2_Stream1);//已经写入的字节数
 		if(MY_br<=2048)//没有触发传输一半中断
 		{
 				 xl_ringbuffer_movewriteindex(&uart1RxRingBuf,MY_br);
@@ -64,7 +64,7 @@ void TIM2_IRQHandler(void)
 				 writeSDCard();	 			//将环形缓冲区内剩余数据一字不落写进SD卡
 		}
 		TIM_ClearITPendingBit(TIM2,TIM_IT_Update);  //清除中断标志位
-    GPIO_ResetBits(GPIOF,GPIO_Pin_9 | GPIO_Pin_10);//  飞机上锁，红绿灯常亮
+    GPIO_ResetBits(GPIOB,GPIO_Pin_0);//  飞机上锁，红绿灯常亮
 while(1);
 	}
 }

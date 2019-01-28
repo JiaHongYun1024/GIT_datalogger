@@ -1,4 +1,4 @@
-;#<FEEDBACK># ARM Linker, 5050106: Last Updated: Thu Dec 20 17:23:02 2018
+;#<FEEDBACK># ARM Linker, 5050106: Last Updated: Mon Jan 28 19:09:29 2019
 ;VERSION 0.2
 ;FILE cc936.o
 ff_convert <= USED 0
@@ -45,8 +45,8 @@ f_stat <= USED 0
 f_truncate <= USED 0
 ;FILE ffunicode.o
 ;FILE init_xiaojia.o
-__asm___14_init_xiaojia_c_0b5acbde____REV16 <= USED 0
-__asm___14_init_xiaojia_c_0b5acbde____REVSH <= USED 0
+__asm___14_init_xiaojia_c_165ffb66____REV16 <= USED 0
+__asm___14_init_xiaojia_c_165ffb66____REVSH <= USED 0
 ;FILE key.o
 KEY_Init <= USED 0
 KEY_Scan <= USED 0
@@ -92,7 +92,6 @@ __asm___5_led_c_LED_Init____REVSH <= USED 0
 ;FILE main.o
 __asm___6_main_c_f5717b50____REV16 <= USED 0
 __asm___6_main_c_f5717b50____REVSH <= USED 0
-set_boud <= USED 0
 ;FILE malloc.o
 __asm___8_malloc_c_4dd4ad64____REV16 <= USED 0
 __asm___8_malloc_c_4dd4ad64____REVSH <= USED 0
@@ -178,6 +177,7 @@ GPIO_ReadInputData <= USED 0
 GPIO_ReadInputDataBit <= USED 0
 GPIO_ReadOutputData <= USED 0
 GPIO_ReadOutputDataBit <= USED 0
+GPIO_SetBits <= USED 0
 GPIO_StructInit <= USED 0
 GPIO_ToggleBits <= USED 0
 GPIO_Write <= USED 0

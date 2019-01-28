@@ -23,7 +23,6 @@ unsigned int  INCNT = 0;;
 u8 dataget;
 u16 USART_RX_STA=0;       //接收状态标记	
 
-//加入以下代码,支持printf函数,而不需要选择use MicroLIB	  
 #if 1
 #pragma import(__use_no_semihosting)             
 //标准库需要的支持函数                 
@@ -41,8 +40,8 @@ void _sys_exit(int x)
 //重定义fputc函数 
 int fputc(int ch, FILE *f)
 { 	
-	while((USART1->SR&0X40)==0);//循环发送,直到发送完毕   
-	USART1->DR = (u8) ch;      
+	while((USART6->SR&0X40)==0);//循环发送,直到发送完毕   
+	USART6->DR = (u8) ch;      
 	return ch;
 }
 #endif

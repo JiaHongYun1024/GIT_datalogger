@@ -26,7 +26,7 @@ void MYDMA_Init(DMA_Stream_TypeDef *DMA_Streamx,uint32_t chx)
 	
   /* DMA Stream */
   DMA_InitStructure.DMA_Channel = chx;  
-  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&USART1->DR;
+  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&USART6->DR;
   DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t)uart1Rx_buf;
   DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralToMemory;
   DMA_InitStructure.DMA_BufferSize = (uint32_t)USART1MAXSIZE;
@@ -40,19 +40,17 @@ void MYDMA_Init(DMA_Stream_TypeDef *DMA_Streamx,uint32_t chx)
   DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_Full;
   DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;
   DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
-	DMA_ITConfig(DMA2_Stream5,DMA_IT_TC,ENABLE);
-	DMA_ITConfig(DMA2_Stream5,DMA_IT_HT,ENABLE);
+	DMA_ITConfig(DMA2_Stream1,DMA_IT_TC,ENABLE);
+	DMA_ITConfig(DMA2_Stream1,DMA_IT_HT,ENABLE);
   DMA_Init(DMA_Streamx, &DMA_InitStructure);
 	DMA_Cmd(DMA_Streamx, ENABLE);//开始DMA循环模式
-	
- 
 } 
 
  
-void DMA2_Stream5_IRQHandler(void)
+void DMA2_Stream1_IRQHandler(void)
 {
-	if(DMA_GetFlagStatus(DMA2_Stream5,DMA_FLAG_HTIF5|DMA_FLAG_TCIF5)!=RESET) { //一半中断
-		       DMA_ClearFlag(DMA2_Stream5,DMA_FLAG_HTIF5|DMA_FLAG_TCIF5);
+	if(DMA_GetFlagStatus(DMA2_Stream1,DMA_FLAG_HTIF1|DMA_FLAG_TCIF1)!=RESET) { //一半中断
+		       DMA_ClearFlag(DMA2_Stream1,DMA_FLAG_HTIF1|DMA_FLAG_TCIF1);
 				 	 xl_ringbuffer_movewriteindex(&uart1RxRingBuf,2048);
 		       DMAITFlag=1;
 	}

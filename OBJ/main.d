@@ -40,7 +40,6 @@
 ..\obj\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\main.o: ..\HARDWARE\LED\led.h
 ..\obj\main.o: ..\HARDWARE\STMFLASH\stmflash.h
-..\obj\main.o: ..\HARDWARE\STMFLASH\stm32f4xx_flash.h
 ..\obj\main.o: ..\HARDWARE\KEY\key.h
 ..\obj\main.o: ..\HARDWARE\SRAM\sram.h
 ..\obj\main.o: ..\MALLOC\malloc.h

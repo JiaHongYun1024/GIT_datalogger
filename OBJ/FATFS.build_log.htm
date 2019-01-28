@@ -17,15 +17,15 @@ Library Manager: ArmAr.exe V5.05 update 1 (build 106)
 Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
 CPU DLL:         SARMCM3.DLL V5.14.0.0
 Dialog DLL:      DCM.DLL V1.13.1.0
-Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.14.0_KEIL
+Target DLL:      Segger\JL2CM3.dll V2.99.13.0
 Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
-E:\MCU\PROJECT DATA LOGGER\SOFTWARE\DATA LOGGER\DATA LOGGER\DATA LOGGER\USER\FATFS.uvprojx
-Project File Date:  12/13/2018
+C:\Users\lenovo\Desktop\DATA LOGGER移植成功可设置时间待测试\DATA LOGGER\USER\FATFS.uvprojx
+Project File Date:  11/30/2018
 
 <h2>Output:</h2>
-Build target 'FATFS'
+Rebuild target 'FATFS'
 Clean started - Project: 'FATFS'
    deleting intermediate output files for target 'FATFS'
 compiling main.c...
@@ -33,22 +33,22 @@ compiling main.c...
   void MyRingBuff_init();
 ..\HARDWARE\RingBuffer\RingQueue.h(18): warning:  #1-D: last line of file ends without a newline
   #endif
-main.c(69): warning:  #188-D: enumerated type mixed with another type
-        FRESULT res=0;  
+init_xiaojia.h(26): warning:  #1-D: last line of file ends without a newline
+  void create_a_file(void);
+main.c(67): warning:  #188-D: enumerated type mixed with another type
+        FRESULT res=0;   
 main.c(66): warning:  #177-D: variable "i" was declared but never referenced
         UINT i;
-main.c(69): warning:  #177-D: variable "res" was declared but never referenced
+main.c(67): warning:  #177-D: variable "res" was declared but never referenced
+        FRESULT res=0;   
+main.c(106): warning:  #188-D: enumerated type mixed with another type
         FRESULT res=0;  
-main.c(109): warning:  #188-D: enumerated type mixed with another type
+main.c(106): warning:  #550-D: variable "res" was set but never used
         FRESULT res=0;  
-main.c(109): warning:  #550-D: variable "res" was set but never used
-        FRESULT res=0;  
-main.c(134): warning:  #177-D: variable "read_boud" was declared but never referenced
+main.c(135): warning:  #177-D: variable "read_boud" was declared but never referenced
         u32 read_boud;
-main.c(136): warning:  #550-D: variable "sta" was set but never used
+main.c(137): warning:  #550-D: variable "sta" was set but never used
         ErrorStatus sta;
-main.c(193): warning:  #1-D: last line of file ends without a newline
-   }
 main.c: 10 warnings, 0 errors
 compiling stm32f4xx_it.c...
 compiling system_stm32f4xx.c...
@@ -67,9 +67,11 @@ compiling init_xiaojia.c...
   void MyRingBuff_init();
 ..\HARDWARE\RingBuffer\RingQueue.h(18): warning:  #1-D: last line of file ends without a newline
   #endif
+init_xiaojia.h(26): warning:  #1-D: last line of file ends without a newline
+  void create_a_file(void);
 init_xiaojia.c(40): warning:  #177-D: variable "RxBuffer" was declared but never referenced
   static unsigned char RxBuffer[RX_BUF_MAX_SIZE];
-init_xiaojia.c: 3 warnings, 0 errors
+init_xiaojia.c: 4 warnings, 0 errors
 compiling ringbuffer.c...
 compiling led.c...
 compiling lcd.c...
@@ -87,7 +89,9 @@ compiling usart.c...
   void MyRingBuff_init();
 ..\HARDWARE\RingBuffer\RingQueue.h(18): warning:  #1-D: last line of file ends without a newline
   #endif
-..\SYSTEM\USART\usart.c: 2 warnings, 0 errors
+..\USER\init_xiaojia.h(26): warning:  #1-D: last line of file ends without a newline
+  void create_a_file(void);
+..\SYSTEM\USART\usart.c: 3 warnings, 0 errors
 assembling startup_stm32f40_41xxx.s...
 compiling misc.c...
 compiling stm32f4xx_gpio.c...
@@ -116,8 +120,8 @@ compiling exfuns.c...
 compiling cc936.c...
 compiling ffunicode.c...
 linking...
-Program Size: Code=47540 RO-data=350492 RW-data=212 ZI-data=1229516  
-"..\OBJ\FATFS.axf" - 0 Error(s), 22 Warning(s).
+Program Size: Code=47556 RO-data=350492 RW-data=192 ZI-data=1229504  
+"..\OBJ\FATFS.axf" - 0 Error(s), 24 Warning(s).
 
 *** Performing Cross-Module-Optimization:
 compiling main.c...
@@ -125,22 +129,22 @@ compiling main.c...
   void MyRingBuff_init();
 ..\HARDWARE\RingBuffer\RingQueue.h(18): warning:  #1-D: last line of file ends without a newline
   #endif
-main.c(69): warning:  #188-D: enumerated type mixed with another type
-        FRESULT res=0;  
+init_xiaojia.h(26): warning:  #1-D: last line of file ends without a newline
+  void create_a_file(void);
+main.c(67): warning:  #188-D: enumerated type mixed with another type
+        FRESULT res=0;   
 main.c(66): warning:  #177-D: variable "i" was declared but never referenced
         UINT i;
-main.c(69): warning:  #177-D: variable "res" was declared but never referenced
+main.c(67): warning:  #177-D: variable "res" was declared but never referenced
+        FRESULT res=0;   
+main.c(106): warning:  #188-D: enumerated type mixed with another type
         FRESULT res=0;  
-main.c(109): warning:  #188-D: enumerated type mixed with another type
+main.c(106): warning:  #550-D: variable "res" was set but never used
         FRESULT res=0;  
-main.c(109): warning:  #550-D: variable "res" was set but never used
-        FRESULT res=0;  
-main.c(134): warning:  #177-D: variable "read_boud" was declared but never referenced
+main.c(135): warning:  #177-D: variable "read_boud" was declared but never referenced
         u32 read_boud;
-main.c(136): warning:  #550-D: variable "sta" was set but never used
+main.c(137): warning:  #550-D: variable "sta" was set but never used
         ErrorStatus sta;
-main.c(193): warning:  #1-D: last line of file ends without a newline
-   }
 main.c: 10 warnings, 0 errors
 compiling stm32f4xx_it.c...
 compiling system_stm32f4xx.c...
@@ -159,9 +163,11 @@ compiling init_xiaojia.c...
   void MyRingBuff_init();
 ..\HARDWARE\RingBuffer\RingQueue.h(18): warning:  #1-D: last line of file ends without a newline
   #endif
+init_xiaojia.h(26): warning:  #1-D: last line of file ends without a newline
+  void create_a_file(void);
 init_xiaojia.c(40): warning:  #177-D: variable "RxBuffer" was declared but never referenced
   static unsigned char RxBuffer[RX_BUF_MAX_SIZE];
-init_xiaojia.c: 3 warnings, 0 errors
+init_xiaojia.c: 4 warnings, 0 errors
 compiling ringbuffer.c...
 compiling led.c...
 compiling lcd.c...
@@ -178,7 +184,9 @@ compiling usart.c...
   void MyRingBuff_init();
 ..\HARDWARE\RingBuffer\RingQueue.h(18): warning:  #1-D: last line of file ends without a newline
   #endif
-..\SYSTEM\USART\usart.c: 2 warnings, 0 errors
+..\USER\init_xiaojia.h(26): warning:  #1-D: last line of file ends without a newline
+  void create_a_file(void);
+..\SYSTEM\USART\usart.c: 3 warnings, 0 errors
 compiling misc.c...
 compiling stm32f4xx_gpio.c...
 compiling stm32f4xx_fsmc.c...
@@ -205,28 +213,28 @@ compiling ff.c...
 compiling exfuns.c...
 compiling cc936.c...
 linking...
-Program Size: Code=30432 RO-data=350312 RW-data=192 ZI-data=1229504  
+Program Size: Code=30584 RO-data=350312 RW-data=172 ZI-data=1229524  
 compiling main.c...
 ..\HARDWARE\RingBuffer\RingQueue.h(9): warning:  #1295-D: Deprecated declaration MyRingBuff_init - give arg types
   void MyRingBuff_init();
 ..\HARDWARE\RingBuffer\RingQueue.h(18): warning:  #1-D: last line of file ends without a newline
   #endif
-main.c(69): warning:  #188-D: enumerated type mixed with another type
-        FRESULT res=0;  
+init_xiaojia.h(26): warning:  #1-D: last line of file ends without a newline
+  void create_a_file(void);
+main.c(67): warning:  #188-D: enumerated type mixed with another type
+        FRESULT res=0;   
 main.c(66): warning:  #177-D: variable "i" was declared but never referenced
         UINT i;
-main.c(69): warning:  #177-D: variable "res" was declared but never referenced
+main.c(67): warning:  #177-D: variable "res" was declared but never referenced
+        FRESULT res=0;   
+main.c(106): warning:  #188-D: enumerated type mixed with another type
         FRESULT res=0;  
-main.c(109): warning:  #188-D: enumerated type mixed with another type
+main.c(106): warning:  #550-D: variable "res" was set but never used
         FRESULT res=0;  
-main.c(109): warning:  #550-D: variable "res" was set but never used
-        FRESULT res=0;  
-main.c(134): warning:  #177-D: variable "read_boud" was declared but never referenced
+main.c(135): warning:  #177-D: variable "read_boud" was declared but never referenced
         u32 read_boud;
-main.c(136): warning:  #550-D: variable "sta" was set but never used
+main.c(137): warning:  #550-D: variable "sta" was set but never used
         ErrorStatus sta;
-main.c(193): warning:  #1-D: last line of file ends without a newline
-   }
 main.c: 10 warnings, 0 errors
 compiling stm32f4xx_it.c...
 compiling system_stm32f4xx.c...
@@ -245,9 +253,11 @@ compiling init_xiaojia.c...
   void MyRingBuff_init();
 ..\HARDWARE\RingBuffer\RingQueue.h(18): warning:  #1-D: last line of file ends without a newline
   #endif
+init_xiaojia.h(26): warning:  #1-D: last line of file ends without a newline
+  void create_a_file(void);
 init_xiaojia.c(40): warning:  #177-D: variable "RxBuffer" was declared but never referenced
   static unsigned char RxBuffer[RX_BUF_MAX_SIZE];
-init_xiaojia.c: 3 warnings, 0 errors
+init_xiaojia.c: 4 warnings, 0 errors
 compiling ringbuffer.c...
 compiling led.c...
 compiling lcd.c...
@@ -264,7 +274,9 @@ compiling usart.c...
   void MyRingBuff_init();
 ..\HARDWARE\RingBuffer\RingQueue.h(18): warning:  #1-D: last line of file ends without a newline
   #endif
-..\SYSTEM\USART\usart.c: 2 warnings, 0 errors
+..\USER\init_xiaojia.h(26): warning:  #1-D: last line of file ends without a newline
+  void create_a_file(void);
+..\SYSTEM\USART\usart.c: 3 warnings, 0 errors
 compiling misc.c...
 compiling stm32f4xx_gpio.c...
 compiling stm32f4xx_fsmc.c...
@@ -291,13 +303,13 @@ compiling ff.c...
 compiling exfuns.c...
 compiling cc936.c...
 linking...
-Program Size: Code=30432 RO-data=350312 RW-data=192 ZI-data=1229504  
+Program Size: Code=30584 RO-data=350312 RW-data=172 ZI-data=1229524  
 FromELF: creating hex file...
-"..\OBJ\FATFS.axf" - 0 Error(s), 22 Warning(s).
+"..\OBJ\FATFS.axf" - 0 Error(s), 24 Warning(s).
 *** Completed Cross-Module-Optimization after 3 iteration(s).
 
 <h2>Collection of Component include folders:</h2>
-  E:\MCU\PROJECT DATA LOGGER\SOFTWARE\DATA LOGGER\DATA LOGGER\DATA LOGGER\USER\RTE
+  C:\Users\lenovo\Desktop\DATA LOGGER移植成功可设置时间待测试\DATA LOGGER\USER\RTE
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0
 
 <h2>Collection of Component Files used:</h2>

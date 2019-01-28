@@ -46,10 +46,7 @@ FIL fl;
 DIR dy; 
 FRESULT res;
 FILINFO flinfo;
-/*Ω·ππÃÂ∂®“Â*/
-RTC_TimeTypeDef RTC_TimeStruct;
-RTC_DateTypeDef RTC_DateStruct;
-time get_time;//∑≈÷√ ±º‰µƒΩ·ππÃÂ£¨√ø¥Œ…œµÁªÒ»° ±º‰œ»∂¡RTC£¨»ª∫Û∏≥∏¯timeΩ·ππÃÂ£¨»° ˝ ±÷±Ω”»°time¿ÔµƒΩ·ππ≥…‘±
+
 
 
 /*******************************************************************************/
@@ -57,48 +54,48 @@ time get_time;//∑≈÷√ ±º‰µƒΩ·ππÃÂ£¨√ø¥Œ…œµÁªÒ»° ±º‰œ»∂¡RTC£¨»ª∫Û∏≥∏¯timeΩ·ππÃÂ£¨»
 /*******************************************************************************/
 
 /*************************************************************************/
-void USART1_Init(u32 boud)
+void USART6_Init(void)
 {
 	GPIO_InitTypeDef  GPIO_InitStructure;
 	USART_InitTypeDef USART_InitStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
 	
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1,ENABLE);// πƒ‹USART1 ±÷”
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA,ENABLE);
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART6,ENABLE);// πƒ‹USART1 ±÷”
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC,ENABLE);
 
-	GPIO_PinAFConfig(GPIOA,GPIO_PinSource9,GPIO_AF_USART1);
-	GPIO_PinAFConfig(GPIOA,GPIO_PinSource10,GPIO_AF_USART1);
+	GPIO_PinAFConfig(GPIOC,GPIO_PinSource6,GPIO_AF_USART6);
+	GPIO_PinAFConfig(GPIOC,GPIO_PinSource7,GPIO_AF_USART6);
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-  GPIO_Init(GPIOA, &GPIO_InitStructure);
+  GPIO_Init(GPIOC, &GPIO_InitStructure);
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-  GPIO_Init(GPIOA, &GPIO_InitStructure);
+  GPIO_Init(GPIOC, &GPIO_InitStructure);
 	
-	USART_InitStructure.USART_BaudRate=boud;
+	USART_InitStructure.USART_BaudRate=921600;
 	USART_InitStructure.USART_HardwareFlowControl=USART_HardwareFlowControl_None;
 	USART_InitStructure.USART_Mode=USART_Mode_Rx|USART_Mode_Tx;
 	USART_InitStructure.USART_Parity=USART_Parity_No;
 	USART_InitStructure.USART_StopBits=USART_StopBits_1;
 	USART_InitStructure.USART_WordLength=USART_WordLength_8b;
-	USART_Init(USART1,&USART_InitStructure);
+	USART_Init(USART6,&USART_InitStructure);
 	
 	
-	USART_Cmd(USART1,ENABLE);
-	USART_DMACmd(USART1,USART_DMAReq_Rx,ENABLE);
+	USART_Cmd(USART6,ENABLE);
+	USART_DMACmd(USART6,USART_DMAReq_Rx,ENABLE);
 //	USART_ITConfig(USART1,USART_IT_IDLE,ENABLE);
 //	USART_ITConfig(USART1,USART_IT_RXNE,ENABLE);
-	USART_ClearFlag(USART1, USART_FLAG_TC);
+	USART_ClearFlag(USART6, USART_FLAG_TC);
 
-	NVIC_InitStructure.NVIC_IRQChannel=DMA2_Stream5_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannel=DMA2_Stream1_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=0;//◊Ó∏ﬂ”≈œ»º∂
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority=0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd=ENABLE;
@@ -114,14 +111,14 @@ void USART1_Init(u32 boud)
 void MY_init(void)
 {
 NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//…Ë÷√œµÕ≥÷–∂œ”≈œ»º∂∑÷◊È2
-MYDMA_Init(DMA2_Stream5,DMA_Channel_4);
+MYDMA_Init(DMA2_Stream1,DMA_Channel_5);
 //MYDMA_Enable(DMA2_Stream5,2048);
 	
-	USART1_Init(921600);
+USART6_Init();
 	
-	delay_init(168);  //≥ı ºªØ—” ±∫Ø ˝
+delay_init(168);  //≥ı ºªØ—” ±∫Ø ˝
 	
-	LED_Init();					//≥ı ºªØLED 
+LED_Init();					//≥ı ºªØLED 
 //	W25QXX_Init();				//≥ı ºªØW25Q128
 	my_mem_init(SRAMIN);		//≥ı ºªØƒ⁄≤øƒ⁄¥Ê≥ÿ 
 	my_mem_init(SRAMCCM);		//≥ı ºªØCCMƒ⁄¥Ê≥ÿ
@@ -153,6 +150,9 @@ void mount_fatfs(void)
 /************************************************************************/
 void create_a_file(void)
 {
+	RTC_TimeTypeDef RTC_TimeStruct;
+	RTC_DateTypeDef RTC_DateStruct;
+  time get_time;//∑≈÷√ ±º‰µƒΩ·ππÃÂ£¨√ø¥Œ…œµÁªÒ»° ±º‰œ»∂¡RTC£¨»ª∫Û∏≥∏¯timeΩ·ππÃÂ£¨»° ˝ ±÷±Ω”»°time¿ÔµƒΩ·ππ≥…‘±
 
 	//ªÒ»°RTC ±º‰
 			RTC_GetTime(RTC_Format_BIN,&RTC_TimeStruct);	

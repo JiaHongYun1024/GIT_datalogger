@@ -40,7 +40,6 @@
 ..\obj\init_xiaojia.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\init_xiaojia.o: ..\HARDWARE\LED\led.h
 ..\obj\init_xiaojia.o: ..\HARDWARE\STMFLASH\stmflash.h
-..\obj\init_xiaojia.o: ..\HARDWARE\STMFLASH\stm32f4xx_flash.h
 ..\obj\init_xiaojia.o: ..\HARDWARE\KEY\key.h
 ..\obj\init_xiaojia.o: ..\HARDWARE\SRAM\sram.h
 ..\obj\init_xiaojia.o: ..\MALLOC\malloc.h

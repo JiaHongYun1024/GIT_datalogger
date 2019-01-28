@@ -24,4 +24,3 @@ void check_SD(void);
 UINT MAX(void);
 void mount_fatfs(void);
 void create_a_file(void);
-void USART1_Init(u32 boud);
