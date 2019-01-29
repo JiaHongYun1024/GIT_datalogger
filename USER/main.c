@@ -174,6 +174,12 @@ void upload_space(void)
  printf("当前剩余容量：%d",(int)fre_sect);
 if(fre_sect<=tot_sect/10)//剩余空间小于百分之10
  printf("剩余空间小于百分之10");
+while(1)
+ {
+  LED_shansuo();
+	delay_ms(2000);
+	LED0 = ~LED0;
+ }
 }
 /*LED
 函数名：LED_shansuo
